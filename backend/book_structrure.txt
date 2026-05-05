@@ -1,0 +1,22 @@
+{
+  "id": "string",
+  "title": "string",
+  "author": {
+    "fullName": "string",
+    "nationality": "string"
+  },
+  "category": "string",
+  "price": 0,
+  "stockQuantity": 0,
+  "tags": [
+    "string"
+  ],
+  "reviews": [
+    {
+      "username": "string",
+      "rating": 0,
+      "comment": "string"
+    }
+  ],
+  "createdAt": "date"
+}

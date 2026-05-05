@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "title": "The Great Gatsby",
+    "author": {
+      "fullName": "F. Scott Fitzgerald",
+      "nationality": "American"
+    },
+    "category": "Classic Literature",
+    "price": 14.99,
+    "stockQuantity": 50,
+    "tags": [
+      "classic",
+      "novel",
+      "1920s"
+    ],
+    "reviews": [
+      {
+        "username": "reader1",
+        "rating": 5,
+        "comment": "A masterpiece"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "2",
+    "title": "1984",
+    "author": {
+      "fullName": "George Orwell",
+      "nationality": "British"
+    },
+    "category": "Dystopian Fiction",
+    "price": 12.5,
+    "stockQuantity": 35,
+    "tags": [
+      "dystopia",
+      "politics",
+      "fiction"
+    ],
+    "reviews": [
+      {
+        "username": "reader2",
+        "rating": 5,
+        "comment": "Very powerful"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "3",
+    "title": "To Kill a Mockingbird",
+    "author": {
+      "fullName": "Harper Lee",
+      "nationality": "American"
+    },
+    "category": "Historical Fiction",
+    "price": 13.75,
+    "stockQuantity": 42,
+    "tags": [
+      "justice",
+      "classic",
+      "novel"
+    ],
+    "reviews": [
+      {
+        "username": "reader3",
+        "rating": 4,
+        "comment": "Emotional and meaningful"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "4",
+    "title": "Pride and Prejudice",
+    "author": {
+      "fullName": "Jane Austen",
+      "nationality": "British"
+    },
+    "category": "Romance",
+    "price": 11.99,
+    "stockQuantity": 28,
+    "tags": [
+      "romance",
+      "classic",
+      "society"
+    ],
+    "reviews": [
+      {
+        "username": "reader4",
+        "rating": 5,
+        "comment": "Beautiful writing"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "5",
+    "title": "The Hobbit",
+    "author": {
+      "fullName": "J.R.R. Tolkien",
+      "nationality": "British"
+    },
+    "category": "Fantasy",
+    "price": 16.2,
+    "stockQuantity": 60,
+    "tags": [
+      "fantasy",
+      "adventure",
+      "middle-earth"
+    ],
+    "reviews": [
+      {
+        "username": "reader5",
+        "rating": 5,
+        "comment": "Amazing adventure"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "6",
+    "title": "The Catcher in the Rye",
+    "author": {
+      "fullName": "J.D. Salinger",
+      "nationality": "American"
+    },
+    "category": "Coming-of-Age",
+    "price": 10.99,
+    "stockQuantity": 22,
+    "tags": [
+      "youth",
+      "classic",
+      "novel"
+    ],
+    "reviews": [
+      {
+        "username": "reader6",
+        "rating": 4,
+        "comment": "Unique voice"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "7",
+    "title": "Atomic Habits",
+    "author": {
+      "fullName": "James Clear",
+      "nationality": "American"
+    },
+    "category": "Self-Help",
+    "price": 18.0,
+    "stockQuantity": 75,
+    "tags": [
+      "productivity",
+      "habits",
+      "growth"
+    ],
+    "reviews": [
+      {
+        "username": "reader7",
+        "rating": 5,
+        "comment": "Practical advice"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "8",
+    "title": "Sapiens",
+    "author": {
+      "fullName": "Yuval Noah Harari",
+      "nationality": "Israeli"
+    },
+    "category": "History",
+    "price": 20.5,
+    "stockQuantity": 31,
+    "tags": [
+      "history",
+      "humanity",
+      "science"
+    ],
+    "reviews": [
+      {
+        "username": "reader8",
+        "rating": 5,
+        "comment": "Very insightful"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "9",
+    "title": "The Alchemist",
+    "author": {
+      "fullName": "Paulo Coelho",
+      "nationality": "Brazilian"
+    },
+    "category": "Philosophical Fiction",
+    "price": 13.4,
+    "stockQuantity": 47,
+    "tags": [
+      "journey",
+      "dreams",
+      "philosophy"
+    ],
+    "reviews": [
+      {
+        "username": "reader9",
+        "rating": 4,
+        "comment": "Inspirational story"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  },
+  {
+    "id": "10",
+    "title": "Clean Code",
+    "author": {
+      "fullName": "Robert C. Martin",
+      "nationality": "American"
+    },
+    "category": "Programming",
+    "price": 29.99,
+    "stockQuantity": 18,
+    "tags": [
+      "software",
+      "coding",
+      "best practices"
+    ],
+    "reviews": [
+      {
+        "username": "reader10",
+        "rating": 5,
+        "comment": "Essential for developers"
+      }
+    ],
+    "createdAt": "2026-05-05"
+  }
+]
