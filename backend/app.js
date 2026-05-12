@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import mongoose from "mongoose";
 
 // Routers
 import booksRouter from "./router/books.route.js";
@@ -28,4 +29,9 @@ app.use("/api/status", (req, res, next) => {
 // global error handler
 app.use(globalErrorHandler)
 
-app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`))
+mongoose.connect(process.env.DB_CONNECTION)
+    .then(() => {
+        console.log("Server is connected to database!");
+
+        app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`))
+    });
