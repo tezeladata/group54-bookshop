@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 
 // Routers
 import booksRouter from "./router/books.route.js";
+import authRouter from "./router/auth.route.js";
 
 // middlewares and controllers
 import globalErrorHandler from "./controllers/error.controllers.js";
@@ -21,6 +22,7 @@ app.use(morgan("dev"));
 
 // routers
 app.use("/api/books", booksRouter);
+app.use("/api/auth", authRouter)
 app.use("/api/status", (req, res, next) => {
     res.status(200).json({status: "Server is running"});
     next()
