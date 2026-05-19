@@ -1,11 +1,14 @@
 import express from "express";
 
-import { signUp } from "../controllers/auth.contollers.js";
+import { signUp, verify } from "../controllers/auth.contollers.js";
 
 // Router
 const authRouter = express.Router();
 
 // Sign up
 authRouter.post("/signUp", signUp);
+
+// Email verification
+authRouter.get("/verify/:code", verify);
 
 export default authRouter;
