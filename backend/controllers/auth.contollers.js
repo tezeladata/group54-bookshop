@@ -1,7 +1,29 @@
 import User from "../models/user.model.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/AppError.js";
-import {sendEmail} from "../utils/email.js"
+import {sendEmail} from "../utils/email.js";
+
+const createSendToken = (user, statusCode, res, options = {}) => {
+    const token = user.signToken();
+
+    const cookieOptions = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+        path: "/",
+        maxAge: process.env.COOKIE_EXPIRES_IN * 1000 * 60 * 60 * 24
+    };
+
+    user.password = undefined;
+
+    const response = res.cookie("lg", token, cookieOptions);
+
+    if (options.redirectUrl) {
+        return response.redirect(options.redirectStatus || 302, options.redirectUrl)
+    };
+
+    return response.status(statusCode).json(user);
+}
 
 export const signUp = catchAsync(async (req, res, next) => {
     const {fullname, email, password} = req.body;
@@ -215,4 +237,31 @@ export const verify = catchAsync(async (req, res, next) => {
     await user.save({validateBeforeSave: false});
 
     res.status(200).json({message: "Email verified successfully!"});
+});
+
+export const login = catchAsync(async (req, res, next) => {
+    const {email, password} = req.body;
+
+    const user = await User.findOne({email}).select("+password");
+    if (!user) {
+        return next(new AppError("Invalid email or password!", 401))
+    }
+
+    const isValidPassword = await user.comparePassword(password);
+    if (!isValidPassword) {
+        return next(new AppError("Invalid email or password!", 401))
+    }
+
+    createSendToken(user, 200, res)
+});
+
+export const logOut = catchAsync(async (req, res, next) => {
+    res.clearCookie("lg", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+        path: "/"
+    });
+
+    res.status(200).send();
 });
