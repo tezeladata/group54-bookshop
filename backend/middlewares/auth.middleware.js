@@ -3,7 +3,7 @@ import AppError from "../utils/AppError.js";
 import catchAsync from "../utils/catchAsync.js";
 import jwt from "jsonwebtoken";
 
-export const protect = catchAsync((req, res, next) => {
+export const protect = catchAsync(async (req, res, next) => {
     const token = req.cookies.lg;
 
     if (!token) {

@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 // Routers
 import booksRouter from "./router/books.route.js";
@@ -19,6 +20,7 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cookieParser());
 
 // routers
 app.use("/api/books", booksRouter);

@@ -1,6 +1,7 @@
 import AppError from "../utils/AppError.js";
 import Books from "../models/books.model.js"
 import catchAsync from "../utils/catchAsync.js";
+import {imageUpload, deleteImage} from "../utils/image.js"
 
 export const getAllBooks = catchAsync(async (req, res, next) => {
     const allBooks = await Books.find()
@@ -24,7 +25,18 @@ export const getSingleBook = catchAsync(async (req, res, next) => {
 });
 
 export const addBook = catchAsync(async (req, res, next) => {
-    const newBook = await Books.create(req.body);
+    const body = req.body;
+    const images = req.files.map(file => file.path);
+
+    const result = await imageUpload("books", images);
+    const imageUrls = result.map(img => ({
+        url: img.secure_url,
+        public_id: img.public_id
+    }));
+
+    body.images = imageUrls;
+
+    const newBook = await Books.create(body);
 
     return res.status(201).json(newBook);
 });
@@ -39,12 +51,14 @@ export const editBook = catchAsync(async (req, res, next) => {
 
 export const deleteBook = catchAsync(async (req, res, next) => {
     const {id} = req.params;
-    
     const deletedBook = await Books.findByIdAndDelete(id);
 
-    if (deleteBook === null) {
+    if (deletedBook === null) {
         return next(new AppError(`Book not found to be deleted with id: ${id}`))
-    }
+    };
+
+    const promises = deletedBook.images.map(img => deleteImage(img.public_id));
+    const result = await Promise.all(promises);
 
     return res.status(204).json()
 });
