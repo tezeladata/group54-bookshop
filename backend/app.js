@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 // Routers
 import booksRouter from "./router/books.route.js";
@@ -16,6 +17,12 @@ dotenv.config()
 
 // create a server
 const app = express();
+
+// cors configuration
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+}))
 
 // middlewares
 app.use(express.json());
